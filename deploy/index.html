@@ -11,11 +11,12 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
+@font-face{font-family:'SmileySans';src:url('SmileySans-Oblique.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
 :root{
   --canvas:#131313;--surface:#2d2d2d;--mint:#3cffd0;--mint-border:#309875;--ultraviolet:#5200ff;--purple-rule:#3d00bf;
   --deep-link:#3860be;--hazard-white:#fff;--absolute-black:#000;--secondary-text:#949494;--muted-text:#e9e9e9;
   --tile-yellow:#ffd700;--tile-pink:#ff6b9d;--tile-orange:#ff8c42;--tile-blue:#4dabf7;--dim-gray:#8c8c8c;--img-frame:#313131;
-  --display:'Anton','PingFang SC','Microsoft YaHei',sans-serif;
+  --display:'SmileySans','Anton','PingFang SC','Microsoft YaHei',sans-serif;
   --sans:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei','Helvetica Neue',Arial,sans-serif;
   --mono:'Space Mono','Courier New',monospace;
 }
@@ -238,7 +239,7 @@ body{font-family:var(--sans);background:var(--canvas);color:var(--hazard-white);
 
     <!-- 🇫🇮 赫尔辛基 -->
     <div class="stream-phase"><span class="stream-phase-label fi">🇫🇮 赫尔辛基中转 · 11H05M</span>
-      <div class="stream-item" onclick="navigateTo('helsinki','hel-guide')"><div class="stream-card"><div class="kicker">27 SEP 06:00 抵达</div><h4>赫尔辛基精华游</h4><p>白教堂→岩石教堂→集市广场→Oodi图书馆</p></div></div>
+      <div class="stream-item" onclick="navigateTo('helsinki','hel-guide')"><div class="stream-card"><div class="kicker">27 SEP 06:00 抵达</div><h4>赫尔辛基精华游 + 桑拿</h4><p>白教堂→岩石教堂→集市→Löyly海边桑拿</p></div></div>
       <div class="stream-item" onclick="navigateTo('flights','flight-section')"><div class="stream-card"><div class="kicker">27 SEP 17:05</div><h4>赫尔辛基 → 巴塞罗那</h4><p>AY1653 · 4h · 20:05 落地</p></div></div>
     </div>
 
@@ -293,13 +294,20 @@ body{font-family:var(--sans);background:var(--canvas);color:var(--hazard-white);
 <section class="section" id="section-helsinki">
   <div class="section-kicker">LAYOVER · 11H IN + 9H OUT</div><h2 class="section-title">赫尔辛基</h2>
   <div class="city-map-wrap" id="mapHelsinki"></div>
-  <p style="font-size:11px;color:var(--secondary-text);margin:4px 0 12px">🟢 中央车站 → 🔴 白教堂 → 🟡 红教堂 → 🟠 集市广场 → 🟣 岩石教堂 → 🔵 Oodi · <em>全步行</em></p>
+  <p style="font-size:11px;color:var(--secondary-text);margin:4px 0 12px">🟢 中央车站 → 🔴 白教堂 → 🟡 红教堂 → 🟠 集市广场 → 🟣 岩石教堂 → 🔵 Oodi → 🟠 Löyly桑拿 · <em>全步行+Tram</em></p>
   <div id="hel-intro"></div>
   <div class="alert alert-warn"><span class="alert-icon">🧥</span><strong>气温预警：</strong>9月底5°C-12°C，需厚外套/薄羽绒。与西班牙温差可达20°C。</div>
   <div class="accordion"><div class="accordion-header" onclick="this.classList.toggle('open')">🚆 机场→市区 P/I线火车 €4.60 30min <span class="accordion-arrow">▼</span></div><div class="accordion-body"><div class="accordion-body-inner">市区紧凑，所有景点步行可达。回程同样乘火车返回机场。</div></div></div>
   <div class="accordion" id="hel-guide"><div class="accordion-header" onclick="this.classList.toggle('open')">🏛️ 去程11H步行路线 <span class="accordion-arrow">▼</span></div><div class="accordion-body"><div class="accordion-body-inner">
     <table class="data-table"><tr><th>时间</th><th>景点</th><th>门票</th></tr>
-    <tr><td>07:00</td><td>机场P线→中央车站</td><td>€4.60</td></tr><tr><td>08:00</td><td>白教堂 Tuomiokirkko</td><td>免费</td></tr><tr><td>08:30</td><td>参议院广场</td><td>免费</td></tr><tr><td>09:00</td><td>红教堂 Uspenski</td><td>免费</td></tr><tr><td>09:30</td><td>码头集市+老农贸市场</td><td>三文鱼汤€10</td></tr><tr><td>11:00</td><td>岩石教堂 Temppeliaukio</td><td>€5</td></tr><tr><td>12:00</td><td>Oodi颂歌图书馆</td><td>免费</td></tr><tr><td>13:00</td><td>午餐+噜噜米商店</td><td>-</td></tr><tr><td>15:00</td><td>返回机场</td><td>€4.60</td></tr></table>
+    <tr><td>07:00</td><td>机场P线→中央车站</td><td>€4.60</td></tr><tr><td>08:00</td><td>白教堂 Tuomiokirkko</td><td>免费</td></tr><tr><td>08:30</td><td>参议院广场</td><td>免费</td></tr><tr><td>09:00</td><td>红教堂 Uspenski</td><td>免费</td></tr><tr><td>09:30</td><td>码头集市+老农贸市场</td><td>三文鱼汤€10</td></tr><tr><td>11:00</td><td>岩石教堂 Temppeliaukio</td><td>€5</td></tr><tr><td>12:00</td><td>Oodi颂歌图书馆</td><td>免费</td></tr><tr><td>13:00</td><td>午餐+噜噜米商店</td><td>-</td></tr>    <tr><td>15:00</td><td>返回机场</td><td>€4.60</td></tr></table>
+  </div></div></div>
+  <div class="accordion" id="hel-sauna"><div class="accordion-header" onclick="this.classList.toggle('open')">🧖 芬兰桑拿体验 · Löyly <span class="accordion-arrow">▼</span></div><div class="accordion-body"><div class="accordion-body-inner">
+    <img src="https://images.unsplash.com/photo-1599658880436-c61792e70672?w=800&q=80" alt="Löyly sauna Helsinki" style="width:100%;border-radius:14px;margin-bottom:12px;cursor:pointer" onclick="openModal(this.src,'Löyly — 赫尔辛基最著名的海边桑拿')">
+    <p><strong>Löyly</strong> 是赫尔辛基最 iconic 的公共桑拿，2016年开业后迅速成为地标。纯木结构建筑坐落在波罗的海边，桑拿完可以直接跳进海水——这是芬兰人最地道的体验。</p>
+    <table class="data-table"><tr><th>项目</th><th>详情</th></tr>
+    <tr><td>地址</td><td>Hernesaarenranta 4 · 从市中心Tram 6 约10分钟</td></tr><tr><td>门票</td><td>€19（2小时）· 含毛巾 · 无需预约但建议非高峰去</td></tr><tr><td>开放</td><td>周一二三 13:00-22:00 · 周四五 13:00-23:00 · 周五六 11:00-23:00</td></tr><tr><td>设施</td><td>2个烟熏桑拿 + 1个传统桑拿 · 更衣室 · 酒吧餐厅 · 海边露台</td></tr><tr><td>体验</td><td>蒸桑拿 → 跳波罗的海(9月底约12°C!) → 回桑拿 → 反复循环</td></tr><tr><td>Tips</td><td>① 穿泳衣(芬兰公共桑拿不裸体) ② 带防水袋装手机 ③ 桑拿后露台喝杯热茶</td></tr></table>
+    <div class="alert alert-warn" style="margin-top:12px"><span class="alert-icon">⏰</span><strong>时间提醒：</strong>从Oodi乘Tram 6约15分钟到Löyly。桑拿建议预留45-60分钟（快速体验够用），14:30前结束，赶15:00回中央车站乘火车去机场。</div>
   </div></div></div>
 </section>
 
@@ -667,7 +675,7 @@ body{font-family:var(--sans);background:var(--canvas);color:var(--hazard-white);
     <tr><td>景点门票</td><td>¥1,500-2,500</td><td>手环可省部分</td></tr>
     <tr><td>市内交通</td><td>¥500-800</td><td>地铁/公交/出租车</td></tr>
     <tr><td>新加坡中转</td><td>¥300-500</td><td>餐饮+交通</td></tr>
-    <tr><td>赫尔辛基中转×2</td><td>¥600-1,000</td><td>火车+餐饮</td></tr>
+    <tr><td>赫尔辛基中转×2</td><td>¥750-1,200</td><td>火车+餐饮+桑拿</td></tr>
     <tr class="hl"><td>🟢 总计</td><td><strong>¥15,350-23,900</strong></td><td>不含购物</td></tr>
   </table></div>
 
@@ -712,15 +720,14 @@ function navigateTo(sectionId,anchorId){
   const sec=document.getElementById('section-'+sectionId);
   if(sec){sec.classList.add('active');sec.style.display='block'}
   setTimeout(()=>{
+    // Lazy build maps for this section
+    if(sectionMaps[sectionId])sectionMaps[sectionId]();
     if(anchorId){const el=document.getElementById(anchorId);if(el){el.scrollIntoView({behavior:'smooth',block:'center'});el.style.outline='2px solid var(--mint)';el.style.outlineOffset='8px';setTimeout(()=>{el.style.outline='';el.style.outlineOffset=''},2500);
     // Auto-open day card
     const card=el.closest('.day-card');if(card)card.classList.add('open')}}
     Object.values(maps).forEach(m=>m&&m.invalidateSize&&setTimeout(()=>m.invalidateSize(),100));
   },250);
 }
-
-// Clean up any leftover display styles after maps init
-setTimeout(()=>{document.querySelectorAll('.section').forEach(s=>{if(!s.classList.contains('active')&&s.style.display==='block')s.style.display=''})},500);
 
 document.querySelectorAll('.nav-item').forEach(btn=>{btn.addEventListener('click',()=>navigateTo(btn.dataset.section))});
 document.getElementById('navTabs').addEventListener('wheel',e=>{e.preventDefault();document.getElementById('navTabs').scrollLeft+=e.deltaY});
@@ -733,8 +740,26 @@ function updateChecklist(){
 (function(){try{const s=JSON.parse(localStorage.getItem('spain-v5-checklist'));if(s)document.querySelectorAll('#checklistCard input[type=checkbox]').forEach((c,i)=>{if(s[i])c.checked=true});updateChecklist()}catch(e){}})();
 
 // ===== MAPS (tap-based with popups) =====
-const maps={},darkTile='https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
-function makeMap(id,center,zoom){const m=L.map(id,{zoomControl:false,attributionControl:false}).setView(center,zoom);L.tileLayer(darkTile,{maxZoom:18}).addTo(m);return m}
+const maps={},mapsBuilt={};
+// Tile sources with automatic fallback on failure
+const tileSources=[
+  'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
+  'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+];
+function makeTileLayer(idx){return L.tileLayer(tileSources[idx||0],{maxZoom:18})}
+function makeMap(id,center,zoom){
+  const m=L.map(id,{zoomControl:false,attributionControl:false,fadeAnimation:false,zoomAnimation:false}).setView(center,zoom);
+  let curIdx=0;
+  function addTile(idx){
+    if(idx>=tileSources.length)return;
+    const tl=makeTileLayer(idx);
+    tl.on('tileerror',function(e){if(idx<tileSources.length-1){m.removeLayer(tl);addTile(idx+1)}});
+    tl.addTo(m);
+  }
+  addTile(0);
+  return m;
+}
 function addCircle(map,lat,lng,color,label,time,section,anchor){
   const mk=L.circleMarker([lat,lng],{radius:8,fillColor:color,color:'#fff',weight:2,fillOpacity:1}).addTo(map);
   mk.bindPopup(`<strong>${label}</strong>${time||''}<div class="pop-time">点击跳转详情 →</div>`,{closeButton:false});
@@ -745,49 +770,50 @@ function addRoute(map,a,b,c){L.polyline([[a[0],a[1]],[b[0],b[1]]],{color:c||'#3c
 
 const C={mint:'#3cffd0',pink:'#ff6b9d',yellow:'#ffd700',orange:'#ff8c42',purple:'#af52de',blue:'#4dabf7'};
 
-// Build all maps at once
-function buildAllMaps(){
+// Lazy per-section map builders
+function buildOverviewMap(){
   const overview=makeMap('routeMap',[30,25],2.5);
   const pts=[[22.319,114.169],[1.352,103.82],[60.17,24.938],[41.387,2.17],[40.417,-3.704],[39.863,-4.028]];
   const labels=[['香港','25 SEP 出发',C.mint,'flights','flight-section'],['新加坡','26 SEP 20H50M',C.pink,'singapore','sg-guide'],['赫尔辛基','27 SEP 11H',C.pink,'helsinki','hel-guide'],['巴塞罗那','27 SEP-04 OCT',C.yellow,'spain','d1'],['马德里','30 SEP-02 OCT',C.yellow,'spain','d4'],['托莱多','03 OCT',C.blue,'spain','d7']];
   pts.forEach((p,i)=>addCircle(overview,p[0],p[1],labels[i][2],labels[i][0],labels[i][1],labels[i][3],labels[i][4]));
   for(let i=0;i<pts.length-1;i++)addRoute(overview,pts[i],pts[i+1]);
   addRoute(overview,pts[5],pts[3]);addRoute(overview,pts[3],pts[2]);addRoute(overview,pts[2],pts[1]);addRoute(overview,pts[1],pts[0]);
-
-  function buildCity(id,center,zoom,spots,routes){
-    const m=makeMap(id,center,zoom);
-    spots.forEach(s=>addCircle(m,s[0],s[1],s[2],s[3],s[4],s[5],s[6]));
-    routes.forEach(r=>addRoute(m,r[0],r[1]));
-  }
-
-  buildCity('mapSingapore',[1.30,103.85],13,
-    [[1.364,103.991,C.mint,'樟宜机场','MRT CG2','singapore','sg-intro'],[1.287,103.854,C.pink,'鱼尾狮公园','Raffles Place','singapore','sg-intro'],[1.282,103.864,C.yellow,'滨海湾花园','Bayfront MRT','singapore','sg-intro'],[1.280,103.845,C.orange,'麦士威熟食中心','Tanjong Pagar','singapore','sg-guide'],[1.284,103.844,C.purple,'牛车水','Chinatown','singapore','sg-guide']],
-    [[[1.364,103.991],[1.287,103.854]],[[1.287,103.854],[1.282,103.864]],[[1.282,103.864],[1.280,103.845]],[[1.280,103.845],[1.284,103.844]]]);
-
-  buildCity('mapHelsinki',[60.172,24.945],14,
-    [[60.171,24.941,C.mint,'中央车站','Rautatieasema','helsinki','hel-intro'],[60.170,24.952,C.pink,'白教堂','免费','helsinki','hel-intro'],[60.168,24.960,C.yellow,'红教堂','免费','helsinki','hel-intro'],[60.167,24.953,C.orange,'集市广场','Kauppatori','helsinki','hel-guide'],[60.173,24.925,C.purple,'岩石教堂','€5','helsinki','hel-guide'],[60.174,24.938,C.blue,'Oodi图书馆','免费','helsinki','hel-guide']],
-    [[[60.171,24.941],[60.170,24.952]],[[60.170,24.952],[60.168,24.960]],[[60.168,24.960],[60.167,24.953]],[[60.167,24.953],[60.173,24.925]],[[60.173,24.925],[60.174,24.938]]]);
-
-  buildCity('mapBarcelona',[41.390,2.168],13,
-    [[41.392,2.165,C.mint,'扩展区酒店','Eixample','spain','d1'],[41.404,2.174,C.pink,'圣家堂','€26 地铁L2/L5','spain','d2'],[41.414,2.153,C.yellow,'奎尔公园','€10 公交V19','spain','d2'],[41.384,2.177,C.orange,'哥特区','Jaume I','spain','d3'],[41.382,2.172,C.purple,'博盖利亚市场','Liceu','spain','d3'],[41.379,2.192,C.blue,'Barceloneta海滩','Barceloneta站','spain','d3']],
-    [[[41.392,2.165],[41.404,2.174]],[[41.404,2.174],[41.414,2.153]],[[41.404,2.174],[41.384,2.177]],[[41.384,2.177],[41.382,2.172]],[[41.382,2.172],[41.379,2.192]]]);
-
-  buildCity('mapMadrid',[40.416,-3.702],13,
-    [[40.406,-3.689,C.mint,'Atocha车站','AVE到达','spain','d4'],[40.414,-3.692,C.pink,'普拉多博物馆','€15','spain','d5'],[40.415,-3.683,C.yellow,'丽池公园','免费','spain','d5'],[40.418,-3.714,C.orange,'马德里王宫','Ópera €12','spain','d6'],[40.412,-3.709,C.purple,'Cava Baja','Tapas街','spain','d6'],[40.420,-3.706,C.blue,'格兰大道','购物','spain','d6']],
-    [[[40.406,-3.689],[40.414,-3.692]],[[40.414,-3.692],[40.415,-3.683]],[[40.415,-3.683],[40.418,-3.714]],[[40.418,-3.714],[40.412,-3.709]],[[40.412,-3.709],[40.420,-3.706]]]);
-
-  buildCity('mapToledo',[39.860,-4.025],15,
-    [[39.863,-4.011,C.mint,'火车站','AVE 30min','spain','d7'],[39.860,-4.024,C.pink,'太阳门','免费','spain','d7'],[39.857,-4.024,C.yellow,'大教堂','€12','spain','d7'],[39.858,-4.020,C.orange,'阿尔卡萨','€5','spain','d7'],[39.856,-4.034,C.purple,'圣马丁桥','日落','spain','d7']],
-    [[[39.863,-4.011],[39.860,-4.024]],[[39.860,-4.024],[39.857,-4.024]],[[39.857,-4.024],[39.858,-4.020]],[[39.858,-4.020],[39.856,-4.034]]]);
 }
 
-// Visibility management: force-visible during init, then hide non-active
+function buildCityMap(id,center,zoom,spots,routes){
+  if(mapsBuilt[id])return;
+  const m=makeMap(id,center,zoom);
+  spots.forEach(s=>addCircle(m,s[0],s[1],s[2],s[3],s[4],s[5],s[6]));
+  routes.forEach(r=>addRoute(m,r[0],r[1]));
+  mapsBuilt[id]=true;
+}
+
+// Section → map builders mapping
+const sectionMaps={
+  overview:()=>{if(!mapsBuilt.routeMap){buildOverviewMap();mapsBuilt.routeMap=true}},
+  singapore:()=>buildCityMap('mapSingapore',[1.30,103.85],13,
+    [[1.364,103.991,C.mint,'樟宜机场','MRT CG2','singapore','sg-intro'],[1.287,103.854,C.pink,'鱼尾狮公园','Raffles Place','singapore','sg-intro'],[1.282,103.864,C.yellow,'滨海湾花园','Bayfront MRT','singapore','sg-intro'],[1.280,103.845,C.orange,'麦士威熟食中心','Tanjong Pagar','singapore','sg-guide'],[1.284,103.844,C.purple,'牛车水','Chinatown','singapore','sg-guide']],
+    [[[1.364,103.991],[1.287,103.854]],[[1.287,103.854],[1.282,103.864]],[[1.282,103.864],[1.280,103.845]],[[1.280,103.845],[1.284,103.844]]]),
+  helsinki:()=>buildCityMap('mapHelsinki',[60.172,24.945],14,
+    [[60.171,24.941,C.mint,'中央车站','Rautatieasema','helsinki','hel-intro'],[60.170,24.952,C.pink,'白教堂','免费','helsinki','hel-intro'],[60.168,24.960,C.yellow,'红教堂','免费','helsinki','hel-intro'],[60.167,24.953,C.orange,'集市广场','Kauppatori','helsinki','hel-guide'],[60.173,24.925,C.purple,'岩石教堂','€5','helsinki','hel-guide'],[60.174,24.938,C.blue,'Oodi图书馆','免费','helsinki','hel-guide'],[60.160,24.930,C.orange,'Löyly桑拿','€19 海边木屋','helsinki','hel-sauna']],
+    [[[60.171,24.941],[60.170,24.952]],[[60.170,24.952],[60.168,24.960]],[[60.168,24.960],[60.167,24.953]],[[60.167,24.953],[60.173,24.925]],[[60.173,24.925],[60.174,24.938]],[[60.174,24.938],[60.160,24.930]]]),
+  spain:()=>{
+    buildCityMap('mapBarcelona',[41.390,2.168],13,
+      [[41.392,2.165,C.mint,'扩展区酒店','Eixample','spain','d1'],[41.404,2.174,C.pink,'圣家堂','€26 地铁L2/L5','spain','d2'],[41.414,2.153,C.yellow,'奎尔公园','€10 公交V19','spain','d2'],[41.384,2.177,C.orange,'哥特区','Jaume I','spain','d3'],[41.382,2.172,C.purple,'博盖利亚市场','Liceu','spain','d3'],[41.379,2.192,C.blue,'Barceloneta海滩','Barceloneta站','spain','d3']],
+      [[[41.392,2.165],[41.404,2.174]],[[41.404,2.174],[41.414,2.153]],[[41.404,2.174],[41.384,2.177]],[[41.384,2.177],[41.382,2.172]],[[41.382,2.172],[41.379,2.192]]]);
+    buildCityMap('mapMadrid',[40.416,-3.702],13,
+      [[40.406,-3.689,C.mint,'Atocha车站','AVE到达','spain','d4'],[40.414,-3.692,C.pink,'普拉多博物馆','€15','spain','d5'],[40.415,-3.683,C.yellow,'丽池公园','免费','spain','d5'],[40.418,-3.714,C.orange,'马德里王宫','Ópera €12','spain','d6'],[40.412,-3.709,C.purple,'Cava Baja','Tapas街','spain','d6'],[40.420,-3.706,C.blue,'格兰大道','购物','spain','d6']],
+      [[[40.406,-3.689],[40.414,-3.692]],[[40.414,-3.692],[40.415,-3.683]],[[40.415,-3.683],[40.418,-3.714]],[[40.418,-3.714],[40.412,-3.709]],[[40.412,-3.709],[40.420,-3.706]]]);
+    buildCityMap('mapToledo',[39.860,-4.025],15,
+      [[39.863,-4.011,C.mint,'火车站','AVE 30min','spain','d7'],[39.860,-4.024,C.pink,'太阳门','免费','spain','d7'],[39.857,-4.024,C.yellow,'大教堂','€12','spain','d7'],[39.858,-4.020,C.orange,'阿尔卡萨','€5','spain','d7'],[39.856,-4.034,C.purple,'圣马丁桥','日落','spain','d7']],
+      [[[39.863,-4.011],[39.860,-4.024]],[[39.860,-4.024],[39.857,-4.024]],[[39.857,-4.024],[39.858,-4.020]],[[39.858,-4.020],[39.856,-4.034]]]);
+  }
+};
+
+// Lazy init: only build overview map on page load, rest on tab switch
 (function(){
-  document.querySelectorAll('.section').forEach(s=>s.style.display='block');
-  setTimeout(()=>{
-    buildAllMaps();
-    document.querySelectorAll('.section').forEach(s=>{if(!s.classList.contains('active'))s.style.display=''});
-  },100);
+  document.getElementById('section-overview').style.display='block';
+  setTimeout(()=>{if(sectionMaps.overview)sectionMaps.overview()},200);
 })();
 
 (function(){const d=new Date();d.setDate(d.getDate()+15-((d.getDate()-11)%15));document.getElementById('nextUpdate').textContent=d.toISOString().slice(0,10)})();
